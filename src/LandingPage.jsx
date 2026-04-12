@@ -83,17 +83,15 @@ export default function LandingPage() {
           {buttons.map((btn, index) => (
             <motion.a
               key={index}
-              onClick={
-                () =>
-                  btn.internal
-                    ? navigate(btn.link) // 🔥 pindah halaman React
-                    : window.open(btn.link, "_blank") // 🌍 link luar
+              onClick={() =>
+                btn.internal
+                  ? navigate(btn.link)
+                  : window.open(btn.link, "_blank")
               }
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className="flex items-center gap-6 bg-white/10 backdrop-blur-lg border border-white/20 rounded-2xl p-2 text-white font-semibold shadow-xl hover:bg-white/20 transition-all duration-300"
             >
-              {/* ICON PNG */}
               <img
                 src={btn.icon}
                 alt={btn.label}
