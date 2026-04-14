@@ -215,7 +215,7 @@ function Dashboard() {
                 data={dataChart}
                 cx="50%"
                 cy="50%"
-                outerRadius={120}
+                outerRadius={100}
                 dataKey="value"
                 label
               >
@@ -270,7 +270,7 @@ function Dashboard() {
                 data={dataChartDewasa}
                 cx="50%"
                 cy="50%"
-                outerRadius={120}
+                outerRadius={100}
                 dataKey="value"
                 label
               >
