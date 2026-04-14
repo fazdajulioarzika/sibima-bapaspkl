@@ -253,18 +253,6 @@ function Dashboard() {
                 CMB: <span className="font-bold">{todayCmb}</span>
               </p>
             </div>
-
-            {/* 🔥 LIST */}
-            {todayData.length === 0 ? (
-              <p>Tidak ada data hari ini</p>
-            ) : (
-              todayData.map((item, index) => (
-                <div key={index} className="mb-2 border-b pb-1">
-                  <p className="font-semibold">{item.nama}</p>
-                  <p className="text-sm text-gray-600">{item.program}</p>
-                </div>
-              ))
-            )}
           </div>
         </div>
         {/* dewasa */}
@@ -320,17 +308,6 @@ function Dashboard() {
                 CMB: <span className="font-bold">{todayCmbDewasa}</span>
               </p>
             </div>
-
-            {todayDataDewasa.length === 0 ? (
-              <p>Tidak ada data hari ini</p>
-            ) : (
-              todayDataDewasa.map((item, index) => (
-                <div key={index} className="mb-2 border-b pb-1">
-                  <p className="font-semibold">{item.nama}</p>
-                  <p className="text-sm text-gray-600">{item.program}</p>
-                </div>
-              ))
-            )}
           </div>
         </div>
       </div>
