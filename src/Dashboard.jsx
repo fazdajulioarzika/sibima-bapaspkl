@@ -205,7 +205,7 @@ function Dashboard() {
   };
 
   return (
-    <div className="text-white min-h-screen text-center bg-gradient-to-br from-blue-800 via-indigo-900 to-sky-700 p-8 pb-32">
+    <div className="text-white text-center p-8 pb-32">
       <button
         onClick={() => navigate("/")}
         className="fixed top-6 left-6 z-50 bg-white/60 hover:bg-white/30 backdrop-blur-md px-4 py-2 rounded-lg transition font-semibold"

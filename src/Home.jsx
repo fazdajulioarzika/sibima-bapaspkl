@@ -46,10 +46,10 @@ const buttons = [
   },
 ];
 
-export default function LandingPage() {
+export default function Home() {
   const navigate = useNavigate();
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-800 via-indigo-900 to-sky-700 flex items-center justify-center px-4">
+    <div className=" flex items-center justify-center px-4">
       <div className="text-center max-w-4xl w-full p-4">
         <img src={logo} alt="Logo Lentera" className="mx-auto w-24 md:w-32" />
         <div className="bg-white/10 backdrop-blur-lg border border-white/20 rounded-2xl p-4 my-6 md:my-12">

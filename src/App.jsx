@@ -1,12 +1,16 @@
+// App.jsx
 import { Routes, Route } from "react-router-dom";
-import LandingPage from "./LandingPage";
+import Layout from "./Layout";
 import Dashboard from "./Dashboard";
+import Home from "./Home";
 
 function App() {
   return (
     <Routes>
-      <Route path="/" element={<LandingPage />} />
-      <Route path="/dashboard" element={<Dashboard />} />
+      <Route element={<Layout />}>
+        <Route path="/" element={<Home />} />
+        <Route path="/dashboard" element={<Dashboard />} />
+      </Route>
     </Routes>
   );
 }
