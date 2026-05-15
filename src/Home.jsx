@@ -3,8 +3,7 @@ import { motion } from "framer-motion";
 
 // import icon PNG
 import dashboardIcon from "./assets/icons/dashboard.png";
-import anakIcon from "./assets/icons/anak.png";
-import dewasaIcon from "./assets/icons/dewasa.png";
+import pemasyarakatan from "./assets/icons/pemasyarakatan.png";
 import phoneIcon from "./assets/icons/whatsapp.png";
 import instagramIcon from "./assets/icons/instagram.png";
 import tiktokIcon from "./assets/icons/tiktok.png";
@@ -22,12 +21,12 @@ const buttons = [
   {
     label: "SIBIMA Anak",
     link: "https://forms.gle/qXmiY4wskwtbSusNA",
-    icon: anakIcon,
+    icon: pemasyarakatan,
   },
   {
     label: "SIBIMA Dewasa",
     link: "https://forms.gle/CFqPgxVSAuj64kbQ8",
-    icon: dewasaIcon,
+    icon: pemasyarakatan,
   },
   {
     label: "Instagram",
@@ -51,7 +50,14 @@ export default function Home() {
   return (
     <div className=" flex items-center justify-center px-4">
       <div className="text-center max-w-4xl w-full p-4">
-        <img src={logo} alt="Logo Lentera" className="mx-auto w-24 md:w-32" />
+        <div className="flex gap-4 justify-center items-center">
+          <img src={logo} alt="Logo Lentera" className="w-24 md:w-32" />
+          <img
+            src={pemasyarakatan}
+            alt="Logo Lentera"
+            className="w-18 md:w-24"
+          />
+        </div>
         <div className="bg-white/10 backdrop-blur-lg border border-white/20 rounded-2xl p-4 my-6 md:my-12">
           {/* Title */}
           <motion.div

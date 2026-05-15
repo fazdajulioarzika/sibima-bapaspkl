@@ -16,7 +16,7 @@ function Dashboard() {
     const todayStr = new Date().toLocaleDateString("en-GB");
 
     let result = {
-      total: data.length,
+      total: 0,
       cb: 0,
       pb: 0,
       cmb: 0,
@@ -36,44 +36,69 @@ function Dashboard() {
       },
     };
 
+    // untuk cek duplikat
+    const uniqueTotal = new Set();
+    const uniqueToday = new Set();
+    const uniqueRegistrasi = new Set();
+
     data.forEach((row) => {
       const program = row["Program Re-integrasi Klien"]?.toLowerCase().trim();
       const keperluan = row["Keperluan Klien"]?.toLowerCase().trim();
       const timestamp = row["Timestamp"];
+      const noReg = row["No.Registrasi"]?.trim();
 
-      // 🔥 TOTAL
-      if (program?.includes("cb")) result.cb++;
-      else if (program?.includes("pb")) result.pb++;
-      else if (program?.includes("cmb")) result.cmb++;
+      if (!noReg) return;
 
-      // 🔥 HARI INI
+      // 🔥 TOTAL UNIQUE
+      if (!uniqueTotal.has(noReg)) {
+        uniqueTotal.add(noReg);
+        result.total++;
+
+        if (program?.includes("cmb")) result.cmb++;
+        else if (program?.includes("pb")) result.pb++;
+        else if (program?.includes("cb")) result.cb++;
+      }
+
+      // 🔥 HARI INI UNIQUE
       if (timestamp) {
         const [datePart] = timestamp.split(" ");
 
         if (datePart === todayStr) {
-          result.today.total++;
+          if (!uniqueToday.has(noReg)) {
+            uniqueToday.add(noReg);
+            result.today.total++;
 
-          if (program?.includes("cb")) result.today.cb++;
-          else if (program?.includes("pb")) result.today.pb++;
-          else if (program?.includes("cmb")) result.today.cmb++;
+            if (program?.includes("cmb")) result.today.cmb++;
+            else if (program?.includes("pb")) result.today.pb++;
+            else if (program?.includes("cb")) result.today.cb++;
 
-          const item = {
-            nama: row["Nama"],
-            program: row["Program Re-integrasi Klien"],
-            keperluan: row["Keperluan Klien"],
-          };
+            const item = {
+              nama: row["Nama"],
+              program: row["Program Re-integrasi Klien"],
+              keperluan: row["Keperluan Klien"],
+              noReg,
+            };
 
-          result.today.data.push(item);
+            result.today.data.push(item);
+          }
 
-          // 🔥 REGISTRASI
+          // 🔥 REGISTRASI HARI INI UNIQUE
           if (keperluan?.includes("registrasi")) {
-            result.registrasi.total++;
+            if (!uniqueRegistrasi.has(noReg)) {
+              uniqueRegistrasi.add(noReg);
+              result.registrasi.total++;
 
-            if (program?.includes("cb")) result.registrasi.cb++;
-            else if (program?.includes("pb")) result.registrasi.pb++;
-            else if (program?.includes("cmb")) result.registrasi.cmb++;
+              if (program?.includes("cmb")) result.registrasi.cmb++;
+              else if (program?.includes("pb")) result.registrasi.pb++;
+              else if (program?.includes("cb")) result.registrasi.cb++;
 
-            result.registrasi.data.push(item);
+              result.registrasi.data.push({
+                nama: row["Nama"],
+                program: row["Program Re-integrasi Klien"],
+                keperluan: row["Keperluan Klien"],
+                noReg,
+              });
+            }
           }
         }
       }
