@@ -51,7 +51,7 @@ export default function Home() {
     <div className=" flex items-center justify-center px-4">
       <div className="text-center max-w-4xl w-full p-4">
         <div className="flex gap-4 justify-center items-center">
-          <img src={logo} alt="Logo Lentera" className="w-24 md:w-32" />
+          <img src={logo} alt="Logo Lentera" className="w-18 md:w-24" />
           <img
             src={pemasyarakatan}
             alt="Logo Lentera"
